@@ -10,7 +10,7 @@ const style = {
   tweetBoxLeft: `mr-4`,
   tweetBoxRight: `flex-1`,
   profileImage: `height-12 w-12 rounded-full`,
-  inputField: `w-full h-full outline-none bg-transparent text-lg`,
+  inputField: `w-full h-full ml-2 outline-none bg-transparent text-lg`,
   formLowerContainer: `flex`,
   iconsContainer: `text-[#1d9bf0] flex flex-1 items-center`,
   icon: `mr-2`,
@@ -39,10 +39,11 @@ function TweetBox() {
             <div className={style.tweetBoxRight}>
             <form>
             <textarea
+                className={style.inputField}
+                placeholder="What's happening?"
                 onChange={e => setTweetMessage(e.target.value)}
                 value={tweetMessage}
-                placeholder="What's happening?"
-                className={style.inputField}
+               
             />
             <div className={style.formLowerContainer}>
                 <div className={style.iconsContainer}>

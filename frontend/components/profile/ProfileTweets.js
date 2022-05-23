@@ -1,9 +1,7 @@
-import { BsStar } from "react-icons/bs"
-import TweetBox from './TweetBox'
 import Post from "../Post"
 
 const style = {
-    wrapper: `flex-[2] border-r border-l border-[#38444d] `, //overflow-y-scroll
+    wrapper: `no-scrollbar`,
     header: `sticky top-0 bg-[#15202b] z-10 p-4 flex justify-between items-center`,
     headerTitle: `text-xl font-bold`,
 }
@@ -22,7 +20,7 @@ const tweets = [
         userName: "0xBCd390f697ffDc176f179fB",
         avatar: 'https://techtrend.africa/wp-content/uploads/2021/11/glory.jpg',
         text: 'WAGMI',
-        isProfileImageNft: false,
+        isProfileImageNft: true,
         timestamp: '2022-04-01T11:39:00,000Z'
     },
     {
@@ -43,26 +41,25 @@ const tweets = [
     },
 ]
 
-function Feed() {
-    return (
+function ProfileTweets() {
+    return(
         <div className={style.wrapper}>
-            <div className={style.header}>
-                <div className={style.headerTitle}>Home</div>
-                <BsStar/>
-            </div>
-            <TweetBox/>
-            {tweets.map((tweet, index) => (
+            {tweets?.map((tweet, index) => (
                 <Post
-                   key={index}
-                   displayName={tweet.displayName}
-                   userName={`${tweet.userName.slice(0, 4)}...${tweet.userName.slice(-4)}`}
-                   avatar={tweet.avatar}
-                   text={tweet.text}
-                   isProfileNft={tweet.isProfileImageNft}
-                   timestamp={tweet.timestamp}
+                key={index}
+                displayName='Glory Praise'
+                userName={`${tweet.userName.slice(
+                    0,
+                    4,
+                )}...${tweet.userName.slice(-4)}`}
+                text={tweet.tweet}
+                avatar={tweet.avatar}
+                timestamp={tweet.timestamp}
+                isProfileImageNft={tweet.isProfileImageNft}
                 />
             ))}
         </div>
     )
 }
-export default Feed
+
+export default ProfileTweets
